@@ -1,0 +1,16 @@
+DESCRIPTION
+
+Some C code written in 2009 (approximately, judging by file dates) as a favor 
+for a friend of a friend. I really don't remember who I wrote this for:-[, but 
+this some kind of college task in beginning programming.
+
+
+DETAIL
+
+From a given letters (arbitrary phrase), returns all the valid words of Russian 
+language which can be constructed of letters of given ones.
+Highly inefficient implementation, stores all the possible words and then checks 
+them for non-garbage.
+Vocabulary is represented as an array in header file, which is generated 
+(./text2c script) from a word list (wordlist.txt).
+Uses wide characters.

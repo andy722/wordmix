@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+#   Generates C array of wide strings from a text file
+#
+#   Usage:      ./text2c <wordlist.txt> >wordlist.c
+#
+
+[ -z "$1" ] && echo "Usage: ./text2c <wordlist.txt>" >&2 && exit 1
+
+varName=${1%%.*}
+
+nLines=0
+
+echo -e "#include <stddef.h>\n"
+echo "wchar_t *$varName[] = {"
+
+while read line; do
+    echo "    L\"$line\", "
+    nLines=$[ $nLines + 1 ]
+done < $1
+
+echo "    NULL"
+echo -e "};\n"
+
+echo -e "int ${varName}_size = $nLines;";
